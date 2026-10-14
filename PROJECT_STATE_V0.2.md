@@ -3,7 +3,7 @@
 Rule: a value is VERIFIED only if the user pasted it from their own
 terminal or browser. Everything else is PENDING or a DECISION.
 
-Last updated: 2026-10-14 (Stage 0, in progress)
+Last updated: 2026-10-14 (Stage 0, one confirmation pending)
 
 ## Direction
 
@@ -33,25 +33,37 @@ Last updated: 2026-10-14 (Stage 0, in progress)
   README.md only, 218 insertions, 322 deletions (pasted 2026-10-14)
 - Results at 947c580 (pasted 2026-10-14): 424 passed, 7 skipped;
   Ruff clean; strict mypy clean on 27 files; pip-audit clean
-- Branch feature/v0.2-evidence-linked-ai created from 947c580
-- This file was first committed as d22cc44, local only when pasted.
-  The hash changes if that commit is amended before the first push.
+- Commit identity: commits on this branch are authored as
+  "Jatin Gupta" with the GitHub noreply address, set in the
+  repository-local git config. v0.1 commits keep their original
+  author and are not rewritten.
+- Branch feature/v0.2-evidence-linked-ai was created from 947c580 and
+  pushed with upstream tracking on 2026-10-14. The state file's first
+  commit was amended before the first push, so it is 8e5f0e5, not
+  d22cc44. The second commit is 22b8935.
+
+## CI evidence (GitHub API output, pasted 2026-10-14)
+
+- Runs 20 through 34, the 15 most recent, are all completed with
+  conclusion success.
+- Run 31, 7c1aa86 on main: 4 jobs, all success.
+- Run 32, 7c1aa86 via the v0.1.0 tag push: run-level success.
+- Run 33, 947c580 on main: 4 jobs, all success.
+- Run 34, 22b8935 on this branch: run-level success. The workflow
+  therefore triggers on feature branches.
+- Job-level detail was listed only for runs 31 and 33. Per-step
+  results and test counts are not available from this source.
 
 ## PENDING (Stage 0 closes when these are filled)
 
-- [ ] User confirms they authored commit 947c580
-- [ ] Commit identity decided and recorded here (name only, no emails)
-- [ ] CI conclusions, all four jobs, run for 7c1aa86 on main
-- [ ] CI conclusions, all four jobs, run for 947c580 on main
-- [ ] CI conclusions for the first push of this branch
-- [ ] OPTIONAL, browser only: last pytest line of the 7c1aa86
-      ubuntu-latest 3.11 and windows-latest 3.11 jobs. Needed only to
-      correct the v0.1 acceptance wording in the docs pass.
+- [ ] User confirms they authored commit 947c580 (one word)
+- [ ] git grep -n "continue-on-error" -- .github returns nothing
+      (confirms job success means every step passed)
 
 ## Stage 1 decisions needed from the user
 
-1. Ship F3 (JSON report) in 0.2? Recommended: yes, if F1 and F2 are
-   done by the halfway point.
+1. Ship F3 (JSON report) in 0.2? Recommended: yes, with a go/no-go
+   gate at Stage 10.
 2. Duplicate entity values: reject (recommended) or deduplicate.
 3. FQDN trailing dot: keep distinct (recommended).
 4. Heuristic scope change F1-R34 (supplied package only): accept
@@ -80,10 +92,8 @@ Last updated: 2026-10-14 (Stage 0, in progress)
 
 - ACCEPTANCE.md cites the streaming limit as LIMITATIONS item 14. It
   is item 13 (seen in the 7c1aa86 diff).
-- ACCEPTANCE.md says 6 symlink tests on Ubuntu but 7 skips on
-  Windows. Confirm the count and fix the wording.
-- ACCEPTANCE.md says all four CI legs passed for the tagged commit.
-  Reword it to what the CI evidence above actually shows.
+- ACCEPTANCE.md says 6 symlink tests on Ubuntu. The totals 431 =
+  424 + 7 = 428 + 3 point to 7. Confirm against the test file.
 - README at 947c580 dropped content from the 7c1aa86 version:
   architecture diagram, AI trust-boundary section, CI and platform
   statement, fixture outputs, links to the soc-lab and secureguard
@@ -94,5 +104,5 @@ Last updated: 2026-10-14 (Stage 0, in progress)
 
 ## Stage log
 
-- Stage 0: IN PROGRESS. Code baseline verified. CI evidence and two
-  confirmations pending.
+- Stage 0: code baseline and CI verified. Authorship confirmation
+  pending. Closes with the Stage 1 state-file update.
