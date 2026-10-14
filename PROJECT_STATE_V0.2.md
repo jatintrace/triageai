@@ -3,7 +3,7 @@
 Rule: a value is VERIFIED only if the user pasted it from their own
 terminal or browser. Everything else is PENDING or a DECISION.
 
-Last updated: 2026-10-13 (Stage 0, in progress)
+Last updated: 2026-10-14 (Stage 0, in progress)
 
 ## Direction
 
@@ -23,24 +23,30 @@ Last updated: 2026-10-13 (Stage 0, in progress)
 - v0.1.0 tag commit: 7c1aa86e6253dda3ff23c510bce0cf74da01c036
   (local rev-parse and remote peeled tag line agree)
 - Branch base: 947c580dda031ddb63817ecadb2edf4243dc6349
-  A web-editor commit, 2026-10-09, README.md only (1 file changed),
-  author jatintrace noreply address.
+  A web-editor commit, 2026-10-09, README.md only, author is the
+  jatintrace noreply address. Authorship not yet confirmed by user.
 - origin: https://github.com/jatintrace/triageai.git
 - git grep for the old username on origin/main: no matches
 - v0.1 results at 7c1aa86 (pasted 2026-10-09): 424 passed, 7 skipped;
-  Ruff clean; strict mypy clean on 27 files; pip-audit no known
-  vulnerabilities
+  Ruff clean; strict mypy clean on 27 files; pip-audit clean
+- Code at 947c580 equals v0.1.0: git diff --stat v0.1.0 HEAD lists
+  README.md only, 218 insertions, 322 deletions (pasted 2026-10-14)
+- Results at 947c580 (pasted 2026-10-14): 424 passed, 7 skipped;
+  Ruff clean; strict mypy clean on 27 files; pip-audit clean
+- Branch feature/v0.2-evidence-linked-ai created from 947c580
+- This file was first committed as d22cc44, local only when pasted.
+  The hash changes if that commit is amended before the first push.
 
-## PENDING (Stage 0 stays open until these are filled)
+## PENDING (Stage 0 closes when these are filled)
 
 - [ ] User confirms they authored commit 947c580
-- [ ] git diff --stat v0.1.0 HEAD lists only README.md
-- [ ] pytest, Ruff, mypy, pip-audit re-run at 947c580:
-- [ ] CI, all four legs, commit 7c1aa86:
-- [ ] CI, all four legs, commit 947c580:
-- [ ] Last pytest line, ubuntu-latest 3.11, commit 7c1aa86:
-- [ ] Last pytest line, windows-latest 3.11, commit 7c1aa86:
-- [ ] Commit identity decided (name and email):
+- [ ] Commit identity decided and recorded here (name only, no emails)
+- [ ] CI conclusions, all four jobs, run for 7c1aa86 on main
+- [ ] CI conclusions, all four jobs, run for 947c580 on main
+- [ ] CI conclusions for the first push of this branch
+- [ ] OPTIONAL, browser only: last pytest line of the 7c1aa86
+      ubuntu-latest 3.11 and windows-latest 3.11 jobs. Needed only to
+      correct the v0.1 acceptance wording in the docs pass.
 
 ## Stage 1 decisions needed from the user
 
@@ -76,6 +82,8 @@ Last updated: 2026-10-13 (Stage 0, in progress)
   is item 13 (seen in the 7c1aa86 diff).
 - ACCEPTANCE.md says 6 symlink tests on Ubuntu but 7 skips on
   Windows. Confirm the count and fix the wording.
+- ACCEPTANCE.md says all four CI legs passed for the tagged commit.
+  Reword it to what the CI evidence above actually shows.
 - README at 947c580 dropped content from the 7c1aa86 version:
   architecture diagram, AI trust-boundary section, CI and platform
   statement, fixture outputs, links to the soc-lab and secureguard
@@ -86,4 +94,5 @@ Last updated: 2026-10-13 (Stage 0, in progress)
 
 ## Stage log
 
-- Stage 0: IN PROGRESS
+- Stage 0: IN PROGRESS. Code baseline verified. CI evidence and two
+  confirmations pending.
